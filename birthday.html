@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="style.css" />
+  <audio id="bgSound" src="suara-angin.mp3" autoplay loop></audio>
+</head>
+<body class="galaxy-bg birthday-page">
+  <!-- Canvas untuk bintang jatuh -->
+  <canvas id="shooting-stars"></canvas>
+
+  <!-- Konten ucapan -->
+<div class="center birthday-content">
+  <h1 class="birthday-text"> Happy Birthday! </h1>
+  <p class="birthday-message">
+    I'm not the best at words but, hey... <br />
+    Be happy! It's your 18th birthday!<br />
+    Semoga harapanmu menjadi kenyataan tahun ini yaa <br />
+    Semangat mengejar pendidikannya! Aku betulan yakin kau bisa ngehadapin semua tantangannya. <br />
+    <br />
+    Pencet kadonya dong. Probably not the best gift you'll ever receive, but here you go.
+
+  </p>
+
+  <!-- bagian timer di sini -->
+  <div class="days-since-container">
+    <p class="since-text">Do you know that the world has been happy since</p>
+    <h2 class="days-count" id="daysCounter">...</h2>
+    <p class="since-text">And will be happy everly after</p>
+  </div>
+  <!-- Objek kado -->
+<div class="gift-box-container">
+  <!-- Gambar kado sebagai tombol -->
+<a href="dream.html" class="gift-link">
+  <img src="gift.png" alt="Gift Box" class="gift-box" />
+</a>
+
+  <!-- Script animasi bintang jatuh -->
+  <script>
+    const canvas = document.getElementById("shooting-stars");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    const stars = [];
+
+    class ShootingStar {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height / 2;
+        this.length = Math.random() * 80 + 50;
+        this.speed = Math.random() * 10 + 6;
+        this.angle = Math.PI / 4; // 45 derajat
+        this.alpha = 1;
+      }
+
+      update() {
+        this.x += this.speed * Math.cos(this.angle);
+        this.y += this.speed * Math.sin(this.angle);
+        this.alpha -= 0.015;
+
+        if (this.alpha <= 0) this.reset();
+      }
+
+      draw() {
+        ctx.strokeStyle = `rgba(255, 255, 255, ${this.alpha})`;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(
+          this.x - this.length * Math.cos(this.angle),
+          this.y - this.length * Math.sin(this.angle)
+        );
+        ctx.stroke();
+      }
+    }
+
+    for (let i = 0; i < 10; i++) {
+      stars.push(new ShootingStar());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(star => {
+        star.update();
+        star.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+  </script>
+    <script>
+      // ... kode shooting star di atas
+  
+      animate();
+  
+      // Timer: Berapa hari sejak 6 April 2007
+      const startDate = new Date("2007-04-06T00:00:00Z");
+      const today = new Date();
+      const diffTime = today - startDate;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  
+      document.getElementById("daysCounter").textContent = `${diffDays} days`;
+    </script>
+  
+</body>
+</html>

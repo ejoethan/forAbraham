@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<audio id="bgSound" src="suara-angin.mp3" autoplay loop></audio>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Dreams</title>
+  <link rel="stylesheet" href="style.css">
+  <audio id="bgSound" src="dream.mp3" autoplay loop></audio>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .fade-item {
+      opacity: 0;
+      position: absolute;
+      max-width: 80%;
+      height: auto;
+      animation: fade 3s ease-in-out forwards;
+    }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .text {
+      font-size: 1.8em;
+      text-align: center;
+      opacity: 0;
+      animation: fade 3s ease-in-out forwards;
+      max-width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <img src="img1.jpg" class="fade-item" style="animation-delay: 0s;" />
+  <img src="img2.jpg" class="fade-item" style="animation-delay: 3.5s;" />
+  <img src="img3.jpg" class="fade-item" style="animation-delay: 7s;" />
+  <img src="img4.jpg" class="fade-item" style="animation-delay: 10.5s;" />
+
+  <p class="text" style="animation-delay: 14s;">The world is waiting for your dream.</p>
+  <p class="text" style="animation-delay: 18s;">Because you deserve to be happy, even for the smallest thing.</p>
+  <p class="text" style="animation-delay: 22s;">Happy birthday.</p>
+  <p class="text" style="animation-delay: 26s;">Made with love. <br />
+    -Jo.</p>
+
+</body>
+</html>
