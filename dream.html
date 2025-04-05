@@ -41,26 +41,24 @@
       opacity: 0;
       animation: fade 3s ease-in-out forwards;
       max-width: 80%;
+      z-index: 2;
+      position: absolute;
     }
   </style>
 </head>
 <body>
- <img src="img1.jpg" class="fade-item" style="animation-delay: 3s;" />
-  <img src="img2.jpg" class="fade-item" style="animation-delay: 5s;" />
-  <img src="img4.jpg" class="fade-item" style="animation-delay: 9s;" />
+  <img src="img1.jpg" class="fade-item" style="animation-delay: 0s;" />
+  <img src="img2.jpg" class="fade-item" style="animation-delay: 3.5s;" />
+  <img src="img4.jpg" class="fade-item" style="animation-delay: 7s;" />
 
-  <!-- Teks muncul sebelum img5 -->
+  <!-- img5 dan teks muncul bersamaan -->
+  <img src="img5.jpg" class="fade-item" style="animation-delay: 10.5s;" />
   <p class="text" style="animation-delay: 10.5s;">All big things come from small beginnings</p>
 
-  <!-- Geser img5 setelah teks selesai -->
-  <img src="img5.jpg" class="fade-item" style="animation-delay: 13.5s;" />
-
-  <!-- Geser teks selanjutnya agar berurutan -->
-  <p class="text" style="animation-delay: 17s;">The world is waiting for your dream.</p>
-  <p class="text" style="animation-delay: 21s;">Because you deserve to be happy, even for the smallest thing.</p>
-  <p class="text" style="animation-delay: 25s;">Happy birthday.</p>
-  <p class="text" style="animation-delay: 29s;">Made with love. <br />
-    -Jo.</p>
+  <p class="text" style="animation-delay: 14s;">The world is waiting for your dream.</p>
+  <p class="text" style="animation-delay: 18s;">Because you deserve to be happy, even for the smallest thing.</p>
+  <p class="text" style="animation-delay: 22s;">Happy birthday.</p>
+  <p class="text" style="animation-delay: 26s;">Made with love. <br />-Jo.</p>
 
 </body>
 </html>
